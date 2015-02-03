@@ -1,0 +1,12 @@
+extensions:
+    - PhpSpec\Extension\CodeCoverageExtension
+
+code_coverage:
+  blacklist:
+      - config
+  format:
+    - html
+    - clover
+  output:
+    html: coverage
+    clover: coverage.xml
