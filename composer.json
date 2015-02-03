@@ -1,0 +1,28 @@
+{
+  "name": "nathanmac/instant-messenger",
+  "description": "Instant messaging package.",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Nathan Macnamara",
+      "email": "nathan.macnamara@outlook.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.4.0",
+    "illuminate/container": "5.0.*",
+    "illuminate/support": "5.0.*",
+    "psr/log": "~1.0",
+    "guzzlehttp/guzzle": "5.2.0"
+  },
+  "require-dev": {
+    "phpspec/phpspec": "~2.0",
+    "henrikbjorn/phpspec-code-coverage": "1.0.1"
+  },
+  "autoload": {
+    "psr-0": {
+      "Nathanmac\\InstantMessenger\\": "src/"
+    }
+  },
+  "minimum-stability": "dev"
+}
