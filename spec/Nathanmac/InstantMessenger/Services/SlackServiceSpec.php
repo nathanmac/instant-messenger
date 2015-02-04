@@ -15,15 +15,6 @@ class SlackServiceSpec extends ObjectBehavior
         $this->shouldHaveType('Nathanmac\InstantMessenger\Services\SlackService');
     }
 
-    function it_sends_a_message()
-    {
-        // Create the expected message object
-        $message = new \Nathanmac\InstantMessenger\Message();
-        $message->body('This is a test notification');
-
-        //$this->send($message);
-    }
-
     function it_gets_and_sets_the_web_hook()
     {
         // Get the current key

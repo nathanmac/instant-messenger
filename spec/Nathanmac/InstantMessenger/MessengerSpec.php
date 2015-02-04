@@ -35,13 +35,6 @@ class MessengerSpec extends ObjectBehavior
         });
     }
 
-    function it_should_throw_exception_with_invalid_callback()
-    {
-        //$this->shouldThrow(new \InvalidArgumentException("Callback is not valid."))->during('callMessageBuilder', array('', new \Nathanmac\InstantMessenger\Message()));
-
-        //$this->send('');
-    }
-
     function it_logs_the_message_on_sending_of_a_message(LoggerInterface $logger)
     {
         // Turn on pretending to enable logging
