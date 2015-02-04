@@ -10,6 +10,42 @@ class Message {
     protected $body;
 
     /**
+     * This contains the name and email of the sender.
+     *  (Only supported by selected services)
+     *
+     * @var array
+     */
+    protected $from;
+
+    /**
+     * Set the from details of the message
+     *  (inc. name and email)
+     *
+     * @param string $name
+     * @param string $email
+     * @return $this
+     */
+    public function from($name, $email = '')
+    {
+        $this->from = array(
+            'name' => $name,
+            'email' => $email
+        );
+        return $this;
+    }
+
+    /**
+     * Fetch the from details of the message.
+     *  (inc. name and email)
+     *
+     * @return array
+     */
+    public function getFrom()
+    {
+        return $this->from;
+    }
+
+    /**
      * Set the body of the message
      *
      * @param $body
