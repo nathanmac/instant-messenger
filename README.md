@@ -5,7 +5,7 @@ Instant Messenger
 
 ### Services Supported
     - [x] HipChat
-    - [x] Stack
+    - [x] Slack
     - [ ] FlowDock
     - [ ] Campfire
     - [ ] Gitter
