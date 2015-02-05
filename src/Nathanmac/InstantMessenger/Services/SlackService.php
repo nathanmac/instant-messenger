@@ -1,9 +1,8 @@
 <?php namespace Nathanmac\InstantMessenger\Services;
 
-use GuzzleHttp\Client;
 use Nathanmac\InstantMessenger\Message;
 
-class SlackService implements MessengerService {
+class SlackService extends HTTPService implements MessengerService {
 
     protected $webHook;
 
@@ -93,15 +92,5 @@ class SlackService implements MessengerService {
     public function setChannel($channel)
     {
         return $this->channel = $channel;
-    }
-
-    /**
-     * Get a new HTTP client instance.
-     *
-     * @return \GuzzleHttp\Client
-     */
-    protected function getHttpClient()
-    {
-        return new Client;
     }
 }

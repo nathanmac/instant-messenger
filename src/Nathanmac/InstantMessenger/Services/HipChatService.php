@@ -1,9 +1,8 @@
 <?php namespace Nathanmac\InstantMessenger\Services;
 
-use GuzzleHttp\Client;
 use Nathanmac\InstantMessenger\Message;
 
-class HipChatService implements MessengerService {
+class HipChatService extends HTTPService implements MessengerService {
 
     protected $key;
 
@@ -103,15 +102,5 @@ class HipChatService implements MessengerService {
     public function setRoom($room)
     {
         $this->room = $room;
-    }
-
-    /**
-     * Get a new HTTP client instance.
-     *
-     * @return \GuzzleHttp\Client
-     */
-    protected function getHttpClient()
-    {
-        return new Client;
     }
 }
