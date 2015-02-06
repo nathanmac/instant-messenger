@@ -4,17 +4,27 @@ use Nathanmac\InstantMessenger\Message;
 
 class SlackService extends HTTPService implements MessengerService {
 
+    /**
+     * The web hook for the Slack service.
+     *
+     * @var string
+     */
     protected $webHook;
 
+    /**
+     * The channel for the Slack service.
+     *
+     * @var null|string
+     */
     protected $channel;
 
     /**
-     * Setup the transporter
+     * Setup the transporter for the Slack service.
      *
-     * @param string $webHook
-     * @param bool   $channel
+     * @param string      $webHook
+     * @param null|string $channel
      */
-    public function __construct($webHook, $channel = false)
+    public function __construct($webHook, $channel = null)
     {
         $this->webHook = $webHook;
         $this->channel = $channel;
@@ -24,6 +34,7 @@ class SlackService extends HTTPService implements MessengerService {
      * Send/Transmit the message using the service.
      *
      * @param Message $message
+     *
      * @return void
      */
     public function send(Message $message)
@@ -37,6 +48,7 @@ class SlackService extends HTTPService implements MessengerService {
      * Construct message ready for formatting and transmission.
      *
      * @param Message $message
+     *
      * @return array
      */
     protected function buildMessage(Message $message)
@@ -66,11 +78,13 @@ class SlackService extends HTTPService implements MessengerService {
      * Set the WebHook being used by the transport.
      *
      * @param  string  $webHook
-     * @return void
+     *
+     * @return $this
      */
     public function setWebHook($webHook)
     {
-        return $this->webHook = $webHook;
+        $this->webHook = $webHook;
+        return $this;
     }
 
    /**
@@ -87,10 +101,12 @@ class SlackService extends HTTPService implements MessengerService {
      * Set the channel being used by the transport.
      *
      * @param  string  $channel
-     * @return void
+     *
+     * @return $this
      */
     public function setChannel($channel)
     {
-        return $this->channel = $channel;
+        $this->channel = $channel;
+        return $this;
     }
 }

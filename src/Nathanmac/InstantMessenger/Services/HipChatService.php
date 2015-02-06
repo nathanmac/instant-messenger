@@ -4,12 +4,34 @@ use Nathanmac\InstantMessenger\Message;
 
 class HipChatService extends HTTPService implements MessengerService {
 
+    /**
+     * The authentication key/token for the HipChat service.
+     *
+     * @var string
+     */
     protected $key;
 
+    /**
+     * The room id for the HipChat service.
+     *
+     * @var int
+     */
     protected $room;
 
+    /**
+     * The notification setting for the HipChat service.
+     *
+     * @var bool
+     */
     protected $notify;
 
+    /**
+     * Setup the transporter for the HipChat service.
+     *
+     * @param string $key
+     * @param int    $room
+     * @param bool   $notify
+     */
     public function __construct($key, $room, $notify = true)
     {
         $this->key = $key;
@@ -31,6 +53,7 @@ class HipChatService extends HTTPService implements MessengerService {
      * Construct message ready for formatting and transmission.
      *
      * @param Message $message
+     *
      * @return array
      */
     protected function buildMessage(Message $message)
@@ -55,11 +78,13 @@ class HipChatService extends HTTPService implements MessengerService {
      * Set the API key being used by the transport.
      *
      * @param  string  $key
-     * @return void
+     *
+     * @return $this
      */
     public function setKey($key)
     {
         $this->key = $key;
+        return $this;
     }
 
     /**
@@ -76,11 +101,13 @@ class HipChatService extends HTTPService implements MessengerService {
      * Set the notification status being used by the transport.
      *
      * @param  bool  $notify
-     * @return void
+     *
+     * @return $this
      */
     public function setNotify($notify)
     {
         $this->notify = $notify;
+        return $this;
     }
 
     /**
@@ -97,10 +124,12 @@ class HipChatService extends HTTPService implements MessengerService {
      * Set the Room ID being used by the transport.
      *
      * @param  string  $room
-     * @return void
+     *
+     * @return $this
      */
     public function setRoom($room)
     {
         $this->room = $room;
+        return $this;
     }
 }

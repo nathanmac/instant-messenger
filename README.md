@@ -4,16 +4,16 @@ Instant Messenger
 [![Build Status](https://travis-ci.org/nathanmac/instant-messenger.svg?branch=master)](https://travis-ci.org/nathanmac/instant-messenger)
 
 ### Services Supported
-    - [x] HipChat
-    - [x] Slack
-    - [ ] FlowDock
-    - [ ] Campfire
-    - [ ] Gitter
-    - [ ] Hall
-    - [ ] Jaconda
-    - [ ] Grove
-    - [ ] Sqwiggle
-    - [ ] IRC
+- [x] HipChat
+- [x] Slack
+- [ ] FlowDock
+- [ ] Campfire
+- [ ] Gitter
+- [ ] Hall
+- [ ] Jaconda
+- [ ] Grove
+- [ ] Sqwiggle
+- [ ] IRC
     
 ### Example
 ```php
