@@ -35,7 +35,7 @@ $messenger->send(function($message) {
 
 
 // Slack
-$transport = new SlackService('https://hooks.slack.com/services/WEBHOOKTOKEN');
+$transport = new SlackService('WEBHOOKTOKEN');
 
 $messenger = new Messenger($transport);
 $messenger->send(function($message) {

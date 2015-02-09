@@ -5,11 +5,11 @@ use Nathanmac\InstantMessenger\Message;
 class SlackService extends HTTPService implements MessengerService {
 
     /**
-     * The web hook for the Slack service.
+     * The token for the Slack service.
      *
      * @var string
      */
-    protected $webHook;
+    protected $token;
 
     /**
      * The channel for the Slack service.
@@ -19,14 +19,21 @@ class SlackService extends HTTPService implements MessengerService {
     protected $channel;
 
     /**
+     * The API endpoint for the Slack service.
+     *
+     * @var string
+     */
+    private $api_endpoint = 'https://hooks.slack.com/services/';
+
+    /**
      * Setup the transporter for the Slack service.
      *
-     * @param string      $webHook
+     * @param string      $token
      * @param null|string $channel
      */
-    public function __construct($webHook, $channel = null)
+    public function __construct($token, $channel = null)
     {
-        $this->webHook = $webHook;
+        $this->token = $token;
         $this->channel = $channel;
     }
 
@@ -41,7 +48,7 @@ class SlackService extends HTTPService implements MessengerService {
     {
         $client = $this->getHttpClient();
 
-        $client->post($this->webHook, array('json' => $this->buildMessage($message)));
+        $client->post($this->api_endpoint . $this->token, array('json' => $this->buildMessage($message)));
     }
 
     /**
@@ -69,21 +76,21 @@ class SlackService extends HTTPService implements MessengerService {
      *
      * @return string
      */
-    public function getWebHook()
+    public function getToken()
     {
-        return $this->webHook;
+        return $this->token;
     }
 
     /**
      * Set the WebHook being used by the transport.
      *
-     * @param  string  $webHook
+     * @param  string  $token
      *
      * @return $this
      */
-    public function setWebHook($webHook)
+    public function setToken($token)
     {
-        $this->webHook = $webHook;
+        $this->token = $token;
         return $this;
     }
 

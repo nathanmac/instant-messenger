@@ -7,7 +7,7 @@ class SlackServiceSpec extends ObjectBehavior
 {
     function let()
     {
-        $this->beConstructedWith('webhook', '#channel');
+        $this->beConstructedWith('token', '#channel');
     }
 
     function it_is_initializable()
@@ -15,16 +15,16 @@ class SlackServiceSpec extends ObjectBehavior
         $this->shouldHaveType('Nathanmac\InstantMessenger\Services\SlackService');
     }
 
-    function it_gets_and_sets_the_web_hook()
+    function it_gets_and_sets_the_token()
     {
         // Get the current key
-        $this->getWebHook()->shouldReturn('webhook');
+        $this->getToken()->shouldReturn('token');
 
         // Set the api key
-        $this->setWebHook('hookweb');
+        $this->setToken('newtoken');
 
         // Get the current key
-        $this->getWebHook()->shouldReturn('hookweb');
+        $this->getToken()->shouldReturn('newtoken');
     }
 
     function it_gets_and_sets_the_channel()
