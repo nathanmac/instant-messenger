@@ -48,7 +48,8 @@ class SlackService extends HTTPService implements MessengerService {
     {
         $client = $this->getHttpClient();
 
-        $client->post($this->api_endpoint . $this->token, array('json' => $this->buildMessage($message)));
+        $url = $this->api_endpoint . $this->token;
+        $client->post($url, array('json' => $this->buildMessage($message)));
     }
 
     /**

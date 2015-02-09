@@ -9,7 +9,7 @@ Instant Messenger
 - [ ] FlowDock
 - [ ] Campfire
 - [ ] Gitter
-- [ ] Hall
+- [x] Hall
 - [ ] Jaconda
 - [ ] Grove
 - [ ] Sqwiggle
@@ -35,11 +35,20 @@ $messenger->send(function($message) {
 
 
 // Slack
-$transport = new SlackService('WEBHOOKTOKEN');
+$transport = new SlackService('WEBHOOKTOKEN', '#channel');
 
 $messenger = new Messenger($transport);
 $messenger->send(function($message) {
     $message->body('Hello this is a simple notification.');
     $message->from('John Smith', 'john.smith@example.com');
+});
+
+// Hall
+$transport = new HallService('API TOKEN');
+
+$messenger = new Messenger($transport);
+$messenger->send(function($message) {
+    $message->body('Hello this is a simple notification.');
+    $message->from('John Smith');
 });
 ```
