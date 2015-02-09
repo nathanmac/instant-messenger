@@ -50,7 +50,7 @@ class JacondaService extends HTTPService implements MessengerService {
     {
         $client = $this->getHttpClient();
 
-        $url = 'https://' . $this->subdomain . '.jaconda.im/api/v2/rooms/' . $this->room . '/notify.xml';
+        $url = 'https://' . $this->subDomain . '.jaconda.im/api/v2/rooms/' . $this->room . '/notify.xml';
         $client->post($url, array('auth' => array($this->token, 'X'), 'json' => $this->buildMessage($message)));
     }
 
