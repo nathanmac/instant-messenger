@@ -7,7 +7,7 @@ class Message {
      *
      * @var string
      */
-    protected $body;
+    protected $body = '';
 
     /**
      * This contains the name and email of the sender.
@@ -15,7 +15,7 @@ class Message {
      *
      * @var array
      */
-    protected $from;
+    protected $from = array('name' => 'api', 'email' => '');
 
     /**
      * Set the from details of the message
