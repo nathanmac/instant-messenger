@@ -10,7 +10,7 @@ Instant Messenger
 - [ ] Campfire
 - [ ] Gitter
 - [x] Hall
-- [ ] Jaconda
+- [x] Jaconda
 - [ ] Grove
 - [ ] Sqwiggle
 - [ ] IRC
@@ -50,5 +50,14 @@ $messenger = new Messenger($transport);
 $messenger->send(function($message) {
     $message->body('Hello this is a simple notification.');
     $message->from('John Smith');
+});
+
+// Jaconda
+$transport = new JacondaService('account', 'cq6Py45LYFYDcimOLWht', 'room');
+
+$messenger = new Messenger($transport);
+$messenger->send(function($message) {
+  $message->body('Hello this is a simple notification.');
+  $message->from('John Smith');
 });
 ```
