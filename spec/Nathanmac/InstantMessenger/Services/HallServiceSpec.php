@@ -15,6 +15,7 @@ class HallServiceSpec extends ObjectBehavior
     function it_is_initializable()
     {
         $this->shouldHaveType('Nathanmac\InstantMessenger\Services\HallService');
+        $this->shouldHaveType('Nathanmac\InstantMessenger\Services\HTTPService');
     }
 
     function it_gets_and_sets_the_token()

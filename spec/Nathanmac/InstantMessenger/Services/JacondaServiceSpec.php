@@ -15,6 +15,7 @@ class JacondaServiceSpec extends ObjectBehavior
     function it_is_initializable()
     {
         $this->shouldHaveType('Nathanmac\InstantMessenger\Services\JacondaService');
+        $this->shouldHaveType('Nathanmac\InstantMessenger\Services\HTTPService');
     }
 
     function it_gets_and_sets_the_sub_domain()

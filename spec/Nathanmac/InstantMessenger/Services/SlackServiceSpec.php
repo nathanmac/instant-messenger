@@ -13,6 +13,7 @@ class SlackServiceSpec extends ObjectBehavior
     function it_is_initializable()
     {
         $this->shouldHaveType('Nathanmac\InstantMessenger\Services\SlackService');
+        $this->shouldHaveType('Nathanmac\InstantMessenger\Services\HTTPService');
     }
 
     function it_gets_and_sets_the_token()
