@@ -24,6 +24,8 @@ require 'vendor/autoload.php';
 use Nathanmac\InstantMessenger\Messenger;
 use Nathanmac\InstantMessenger\Services\HipChatService;
 use Nathanmac\InstantMessenger\Services\SlackService;
+use Nathanmac\InstantMessenger\Services\HallService;
+use Nathanmac\InstantMessenger\Services\JacondaService;
 
 // Hipchat
 $transport = new HipChatService('HIPCHAT API TOKEN', 123456);
@@ -35,7 +37,7 @@ $messenger->send(function($message) {
 
 
 // Slack
-$transport = new SlackService('WEBHOOKTOKEN', '#channel');
+$transport = new SlackService('WEBHOOK TOKEN', '#channel');
 
 $messenger = new Messenger($transport);
 $messenger->send(function($message) {
@@ -53,7 +55,7 @@ $messenger->send(function($message) {
 });
 
 // Jaconda
-$transport = new JacondaService('account', 'cq6Py45LYFYDcimOLWht', 'room');
+$transport = new JacondaService('account', 'ROOM TOKEN', 'room');
 
 $messenger = new Messenger($transport);
 $messenger->send(function($message) {
