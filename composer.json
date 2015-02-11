@@ -11,9 +11,10 @@
   "require": {
     "php": ">=5.4.0",
     "illuminate/container": "5.0.*",
+    "illuminate/contracts": "5.0.*",
     "illuminate/support": "5.0.*",
     "psr/log": "~1.0",
-    "guzzlehttp/guzzle": "5.2.0"
+    "guzzlehttp/guzzle": "~5.0"
   },
   "require-dev": {
     "phpspec/phpspec": "~2.0",
@@ -24,5 +25,5 @@
       "Nathanmac\\InstantMessenger\\": "src/"
     }
   },
-  "minimum-stability": "dev"
+  "minimum-stability": "stable"
 }
