@@ -1,5 +1,7 @@
 <?php namespace Nathanmac\InstantMessenger\Facades;
 
+use Illuminate\Support\Facades\Facade;
+
 /**
  * @see \Nathanmac\InstantMessenger\Messenger
  */
