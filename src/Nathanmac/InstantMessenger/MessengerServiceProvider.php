@@ -9,7 +9,7 @@ class MessengerServiceProvider extends ServiceProvider {
      *
      * @var bool
      */
-    protected $defer = true;
+    protected $defer = false;
 
     /**
      * Boot the service provider.
@@ -30,8 +30,15 @@ class MessengerServiceProvider extends ServiceProvider {
      */
     public function register()
     {
-        $this->app->singleton('messenger', function($app)
-        {
+        // Register Aliases
+        $this->app->alias('messenger', 'Nathanmac\InstantMessenger\Messenger');
+        $this->app->alias('messenger', 'Nathanmac\InstantMessenger\Contracts\Messenger');
+        $this->app->alias('messenger', 'Nathanmac\InstantMessenger\Contracts\MessengerQueue');
+
+        // Register the Facade
+        $this->app->alias('Messenger', 'Nathanmac\InstantMessenger\Facades\Messenger');
+
+        $this->app->singleton('messenger', function ($app) {
             $this->registerMessengerService();
 
             // Once we have create the messenger instance, we will set a container instance
@@ -52,12 +59,6 @@ class MessengerServiceProvider extends ServiceProvider {
 
             return $messenger;
         });
-
-        $this->app->alias('messenger', 'Nathanmac\InstantMessenger\Messenger');
-        $this->app->alias(
-            'Messenger',
-            'Nathanmac\InstantMessenger\Facades\Messenger'
-        );
     }
 
     /**
