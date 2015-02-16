@@ -12,6 +12,6 @@ class Messenger extends Facade {
      *
      * @return string
      */
-    protected static function getFacadeAccessor() { return 'messenger'; }
+    protected static function getFacadeAccessor() { return '\Nathanmac\InstantMessenger\Messenger'; }
 
 }
