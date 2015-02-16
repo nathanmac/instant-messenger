@@ -26,6 +26,24 @@ class HipChatService extends HTTPService implements MessengerService {
     protected $notify;
 
     /**
+     * Optional set the colour of the message.
+     *  (Defaults to yellow)
+     *
+     * @var string
+     */
+    protected $color = self::COLOR_YELLOW;
+
+    /**
+     * Colors
+     */
+    const COLOR_YELLOW = 'yellow';
+    const COLOR_GREEN = 'green';
+    const COLOR_RED = 'red';
+    const COLOR_PURPLE = 'purple';
+    const COLOR_GRAY = 'gray';
+    const COLOR_RANDOM = 'random';
+
+    /**
      * Setup the transporter for the HipChat service.
      *
      * @param string $key
@@ -60,7 +78,8 @@ class HipChatService extends HTTPService implements MessengerService {
     {
         return array(
             'message' => $message->getBody(),
-            'notify' => $this->notify
+            'notify' => $this->notify,
+            'color' => $this->color
         );
     }
 
@@ -130,6 +149,28 @@ class HipChatService extends HTTPService implements MessengerService {
     public function setRoom($room)
     {
         $this->room = $room;
+        return $this;
+    }
+
+    /**
+     * Returns the background color for the messsage.
+     *
+     * @return string
+     */
+    public function getColor()
+    {
+        return $this->color;
+    }
+
+    /**
+     * Sets the background color for the message.
+     *
+     * @param string $color
+     * @return $this
+     */
+    public function setColor($color)
+    {
+        $this->color = $color;
         return $this;
     }
 }
