@@ -51,4 +51,16 @@ class HipChatServiceSpec extends ObjectBehavior
         // Get the current notify status
         $this->doNotify()->shouldReturn(false);
     }
+
+    function it_gets_and_sets_the_color_option()
+    {
+        // Get the current color setting
+        $this->getColor()->shouldReturn('yellow');
+
+        // Set the color key
+        $this->setColor('random');
+
+        // Get the current color setting
+        $this->getColor()->shouldReturn('random');
+    }
 }
