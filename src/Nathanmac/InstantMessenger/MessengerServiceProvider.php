@@ -53,6 +53,7 @@ class MessengerServiceProvider extends ServiceProvider {
             return $messenger;
         });
 
+        $this->app->alias('messenger', 'Nathanmac\InstantMessenger\Messenger');
         $this->app->alias(
             'Messenger',
             'Nathanmac\InstantMessenger\Facades\Messenger'
