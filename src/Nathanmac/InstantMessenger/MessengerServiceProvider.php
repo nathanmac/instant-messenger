@@ -30,7 +30,7 @@ class MessengerServiceProvider extends ServiceProvider {
      */
     public function register()
     {
-        $this->app->singleton('\Nathanmac\InstantMessenger\Messenger', function($app)
+        $this->app->singleton('messenger', function($app)
         {
             $this->registerMessengerService();
 
@@ -53,7 +53,6 @@ class MessengerServiceProvider extends ServiceProvider {
             return $messenger;
         });
 
-        // Register the Facade
         $this->app->alias(
             'Messenger',
             'Nathanmac\InstantMessenger\Facades\Messenger'
@@ -102,7 +101,7 @@ class MessengerServiceProvider extends ServiceProvider {
      */
     public function provides()
     {
-        return ['\Nathanmac\InstantMessenger\Messenger', 'messenger.transport'];
+        return ['messenger', 'messenger.transport'];
     }
 
 }
