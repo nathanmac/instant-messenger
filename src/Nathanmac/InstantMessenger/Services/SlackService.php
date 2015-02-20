@@ -89,7 +89,7 @@ class SlackService extends HTTPService implements MessengerService {
     }
 
     /**
-     * Get the WebHook being used by the transport.
+     * Get the token being used by the transport.
      *
      * @return string
      */
@@ -99,7 +99,7 @@ class SlackService extends HTTPService implements MessengerService {
     }
 
     /**
-     * Set the WebHook being used by the transport.
+     * Set the token being used by the transport.
      *
      * @param  string  $token
      *
