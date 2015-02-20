@@ -29,6 +29,18 @@ class HallService extends HTTPService implements MessengerService {
     }
 
     /**
+     * Create a new HallService instance.
+     *
+     * @param $token
+     *
+     * @return HallService
+     */
+    public static function newInstance($token)
+    {
+        return new self($token);
+    }
+
+    /**
      * Send/Transmit the message using the service.
      *
      * @param Message $message

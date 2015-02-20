@@ -38,6 +38,19 @@ class SlackService extends HTTPService implements MessengerService {
     }
 
     /**
+     * Create a new SlackService instance.
+     *
+     * @param $token
+     * @param null $channel
+     *
+     * @return SlackService
+     */
+    public static function newInstance($token, $channel = null)
+    {
+        return new self($token, $channel);
+    }
+
+    /**
      * Send/Transmit the message using the service.
      *
      * @param Message $message

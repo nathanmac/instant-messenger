@@ -57,6 +57,27 @@ class HipChatService extends HTTPService implements MessengerService {
         $this->notify = $notify;
     }
 
+    /**
+     * Create a new HipChatService instance.
+     *
+     * @param $key
+     * @param $room
+     * @param bool $notify
+     *
+     * @return HipChatService
+     */
+    public static function newInstance($key, $room, $notify = true)
+    {
+        return new self($key, $room, $notify);
+    }
+
+    /**
+     * Send/Transmit the message using the service.
+     *
+     * @param Message $message
+     *
+     * @return void
+     */
     public function send(Message $message)
     {
         $client = $this->getHttpClient();
@@ -64,7 +85,7 @@ class HipChatService extends HTTPService implements MessengerService {
         // Build the uri for the request
         $url = "https://api.hipchat.com/v2/room/" . $this->room . "/notification?auth_token=" . $this->key;
 
-        return $client->post($url, array('json' => $this->buildMessage($message)));
+        $client->post($url, array('json' => $this->buildMessage($message)));
     }
 
     /**

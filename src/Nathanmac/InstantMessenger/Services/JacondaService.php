@@ -40,6 +40,20 @@ class JacondaService extends HTTPService implements MessengerService {
     }
 
     /**
+     * Create a new JacondaService instance.
+     *
+     * @param $subDomain
+     * @param $token
+     * @param $room
+     *
+     * @return JacondaService
+     */
+    public static function newInstance($subDomain, $token, $room)
+    {
+        return new self($subDomain, $token, $room);
+    }
+
+    /**
      * Send/Transmit the message using the service.
      *
      * @param Message $message
