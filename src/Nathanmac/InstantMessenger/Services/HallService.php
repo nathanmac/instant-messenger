@@ -64,10 +64,15 @@ class HallService extends HTTPService implements MessengerService {
      */
     protected function buildMessage(Message $message)
     {
-        return array(
+        $msg = array(
             'title' => $message->getFrom()['name'],
             'message' => $message->getBody()
         );
+
+        if ( ! $message->getIcon())
+            $msg['picture'] = $message->getIcon();
+
+        return $msg;
     }
 
     /**

@@ -3,7 +3,7 @@
 class Message {
 
     /**
-     * The contents of the message to be sent
+     * The contents of the message to be sent.
      *
      * @var string
      */
@@ -18,11 +18,19 @@ class Message {
     protected $from = array('name' => 'api', 'email' => '');
 
     /**
-     * Set the from details of the message
+     * The icon image use as part of the message.
+     *
+     * @var string|null
+     */
+    protected $icon = null;
+
+    /**
+     * Set the from details of the message.
      *  (inc. name and email)
      *
      * @param string $name
      * @param string $email
+     *
      * @return $this
      */
     public function from($name, $email = '')
@@ -46,9 +54,10 @@ class Message {
     }
 
     /**
-     * Set the body of the message
+     * Set the body of the message.
      *
      * @param $body
+     *
      * @return $this
      */
     public function body($body)
@@ -58,11 +67,34 @@ class Message {
     }
 
     /**
-     * Fetch the body of the message
+     * Fetch the body of the message.
      *
      * @return string
      */
     public function getBody() {
         return $this->body;
+    }
+
+    /**
+     * Set the icon for the message.
+     *
+     * @param null|string $icon
+     *
+     * @return $this
+     */
+    public function icon($icon)
+    {
+        $this->icon = $icon;
+        return $this;
+    }
+
+    /**
+     * Get the icon for the message.
+     *
+     * @return null|string
+     */
+    public function getIcon()
+    {
+        return $this->icon;
     }
 }
