@@ -12,7 +12,7 @@ Instant Messenger
 - [x] Hall
 - [x] Jaconda
 - [ ] Grove
-- [ ] Sqwiggle
+- [x] Sqwiggle
 - [ ] IRC
     
 ### Example
@@ -26,6 +26,7 @@ use Nathanmac\InstantMessenger\Services\HipChatService;
 use Nathanmac\InstantMessenger\Services\SlackService;
 use Nathanmac\InstantMessenger\Services\HallService;
 use Nathanmac\InstantMessenger\Services\JacondaService;
+use Nathanmac\InstantMessenger\Services\SqwiggleService;
 
 // Hipchat
 $transport = new HipChatService('HIPCHAT API TOKEN', 123456);
@@ -35,6 +36,13 @@ $messenger->send(function($message) {
     $message->body('Hello this is a simple notification.');
 });
 
+// Sqwiggle
+$transport = new SqwiggleService('SWIGGLE_TOKEN', 12345);
+
+$messenger = new Messenger($transport);
+$messenger->send(function($message) {
+    $message->body('Hello this is a simple notification.');
+});
 
 // Slack
 $transport = new SlackService('WEBHOOK TOKEN', '#channel');

@@ -56,6 +56,12 @@ return array(
             'room'    => env('JACONDA_ROOM', ''),
         ],
 
+        'sqwiggle' => [
+            'driver' => 'sqwiggle',
+            'token'  => env('SQWIGGLE_TOKEN', ''),
+            'stream' => env('SQWIGGLE_STREAM', '')
+        ],
+
     ],
 
 );

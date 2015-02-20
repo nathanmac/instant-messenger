@@ -5,6 +5,7 @@ use Nathanmac\InstantMessenger\Services\HallService;
 use Nathanmac\InstantMessenger\Services\HipChatService;
 use Nathanmac\InstantMessenger\Services\JacondaService;
 use Nathanmac\InstantMessenger\Services\SlackService;
+use Nathanmac\InstantMessenger\Services\SqwiggleService;
 
 class ServiceManager extends Manager {
 
@@ -24,19 +25,25 @@ class ServiceManager extends Manager {
     public function createSlackDriver()
     {
         $config = $this->app['config']['messenger.connections']['slack'];
-        return new SlackService($config['token'], $config['channel']);
+        return SlackService::newInstance($config['token'], $config['channel']);
     }
 
     public function createHallDriver()
     {
         $config = $this->app['config']['messenger.connections']['hall'];
-        return new HallService($config['token']);
+        return HallService::newInstance($config['token']);
     }
 
     public function createJacondaDriver()
     {
         $config = $this->app['config']['messenger.connections']['jaconda'];
-        return new JacondaService($config['account'], $config['token'], $config['room']);
+        return JacondaService::newInstance($config['account'], $config['token'], $config['room']);
+    }
+
+    public function createSqwiggleDriver()
+    {
+        $config = $this->app['config']['messenger.connections']['sqwiggle'];
+        return SqwiggleService::newInstance($config['token'], $config['stream']);
     }
 
     /**
