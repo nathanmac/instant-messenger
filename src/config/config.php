@@ -34,12 +34,13 @@ return array(
             'driver' => 'hipchat',
             'token'  => env('HIPCHAT_API_TOKEN', ''),
             'room'   => env('HIPCHAT_ROOM_ID', ''),
+            'color'  => 'random',
             'notify' => true
         ],
 
         'slack' => [
             'driver'  => 'slack',
-            'webhook' => env('SLACK_WEBHOOK', ''),
+            'token'   => env('SLACK_TOKEN', ''),
             'channel' => env('SLACK_CHANNEL', '')
         ],
 
