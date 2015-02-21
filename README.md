@@ -48,6 +48,29 @@ After installing, you can publish the package configuration file into your appli
 
     php artisan vendor:publish nathanmac/instant-messenger
 
+#### Console Command
+```
+$ php artisan messenger:send -h
+Usage:
+ messenger:send [-f|--from[="..."]] [-e|--email[="..."]] [-i|--image[="..."]] text
+
+Arguments:
+ text                  The text/body of the message to be sent.
+
+Options:
+ --from (-f)           Set the name of the sender of the message.
+ --email (-e)          Set the email of the sender of the message.
+ --image (-i)          Set the image/icon of the message.
+ --help (-h)           Display this help message
+ --quiet (-q)          Do not output any message
+ --verbose (-v|vv|vvv) Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug
+ --version (-V)        Display this application version
+ --ansi                Force ANSI output
+ --no-ansi             Disable ANSI output
+ --no-interaction (-n) Do not ask any interactive question
+ --env                 The environment the command should run under.
+```
+
 ### Example
 ```php
 <?php
