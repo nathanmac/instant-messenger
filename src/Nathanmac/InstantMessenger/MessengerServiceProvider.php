@@ -1,6 +1,7 @@
 <?php namespace Nathanmac\InstantMessenger;
 
 use Illuminate\Support\ServiceProvider;
+use Nathanmac\Console\MessengerCommand;
 
 class MessengerServiceProvider extends ServiceProvider {
 
@@ -59,6 +60,13 @@ class MessengerServiceProvider extends ServiceProvider {
 
             return $messenger;
         });
+
+        // Add command for messenger
+        $this->app->bindShared('command.messenger.send', function($app)
+        {
+            return new MessengerCommand();
+        });
+        $this->commands('command.messenger.send');
     }
 
     /**
