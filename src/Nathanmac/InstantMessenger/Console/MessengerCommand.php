@@ -1,4 +1,4 @@
-<?php namespace Nathanmac\Console;
+<?php namespace Nathanmac\InstantMessenger\Console;
 
 use Illuminate\Console\Command;
 use Nathanmac\InstantMessenger\Message;

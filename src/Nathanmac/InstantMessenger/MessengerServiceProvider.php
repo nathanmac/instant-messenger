@@ -1,7 +1,7 @@
 <?php namespace Nathanmac\InstantMessenger;
 
 use Illuminate\Support\ServiceProvider;
-use Nathanmac\Console\MessengerCommand;
+use Nathanmac\InstantMessenger\Console\MessengerCommand;
 
 class MessengerServiceProvider extends ServiceProvider {
 
