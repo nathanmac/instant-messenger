@@ -1,20 +1,53 @@
 Instant Messenger
 =================
 
+[![License](http://img.shields.io/packagist/l/nathanmac/instant-messenger.svg)](https://github.com/nathanmac/instant-messenger/blob/master/LICENSE.md)
 [![Build Status](https://travis-ci.org/nathanmac/instant-messenger.svg?branch=master)](https://travis-ci.org/nathanmac/instant-messenger)
 
-### Services Supported
+Services Supported
+------------------
 - [x] HipChat
 - [x] Slack
+- [x] Hall
+- [x] Jaconda
+- [x] Sqwiggle
 - [ ] FlowDock
 - [ ] Campfire
 - [ ] Gitter
-- [x] Hall
-- [x] Jaconda
 - [ ] Grove
-- [x] Sqwiggle
 - [ ] IRC
-    
+
+Installation
+------------
+
+Begin by installing this package through Composer. Edit your project's `composer.json` file to require `nathanmac/instant-messenger`.
+
+	"require": {
+		"nathanmac/instant-messenger": "1.*"
+	}
+
+Next, update Composer from the Terminal:
+
+    composer update
+
+### Laravel Users
+
+If you are a Laravel user, then there is a service provider that you can make use of to automatically prepare the bindings and such.
+
+```php
+// app/config/app.php
+
+'providers' => [
+    '...',
+    'Nathanmac\InstantMessenger\MessengerServiceProvider'
+];
+```
+
+#### Configuration
+After installing, you can publish the package configuration file into your application by running the following command:
+
+    php artisan vendor:publish nathanmac/instant-messenger
+
 ### Example
 ```php
 <?php
