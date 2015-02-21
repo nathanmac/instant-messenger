@@ -69,7 +69,7 @@ class HallService extends HTTPService implements MessengerService {
             'message' => $message->getBody()
         );
 
-        if ( ! $message->getIcon())
+        if ($message->getIcon())
             $msg['picture'] = $message->getIcon();
 
         return $msg;

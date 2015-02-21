@@ -79,10 +79,10 @@ class SlackService extends HTTPService implements MessengerService {
             'username' => $message->getFrom()['name']
         );
 
-        if ( ! $message->getIcon())
+        if ($message->getIcon())
             $msg['icon_url'] = $message->getIcon();
 
-        if ( ! $this->channel)
+        if ($this->channel)
             $msg['channel'] = $this->channel;
 
         return $msg;
