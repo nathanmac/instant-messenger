@@ -11,9 +11,9 @@ Services Supported
 - [x] Hall
 - [x] Jaconda
 - [x] Sqwiggle
+- [x] Gitter
 - [ ] FlowDock
 - [ ] Campfire
-- [ ] Gitter
 - [ ] Grove
 - [ ] IRC
 
