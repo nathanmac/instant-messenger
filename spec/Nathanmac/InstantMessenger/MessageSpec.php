@@ -29,4 +29,19 @@ class MessageSpec extends ObjectBehavior
         $this->from('John Smith', 'john.smith@example.com');
         $this->getFrom()->shouldReturn(array('name' => 'John Smith', 'email' => 'john.smith@example.com'));
     }
+
+    function it_sets_the_messages_tags()
+    {
+        $this->tag('first tag');
+        $this->getTags()->shouldReturn(['first tag']);
+
+        $this->tags('second tag', 'third tag');
+        $this->getTags()->shouldReturn(['first tag', 'second tag', 'third tag']);
+    }
+
+    function it_sets_the_messages_icon()
+    {
+        $this->icon('url to the icon');
+        $this->getIcon()->shouldReturn('url to the icon');
+    }
 }
