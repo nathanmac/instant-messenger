@@ -56,6 +56,13 @@ return array(
             'room'    => env('JACONDA_ROOM', ''),
         ],
 
+        'campfire' => [
+            'driver'    => 'campfire',
+            'subdomain' => env('CAMPFIRE_SUBDOMAIN', ''),
+            'token'     => env('CAMPFIRE_API_TOKEN', ''),
+            'room'      => env('CAMPFIRE_ROOM', ''),
+        ],
+
         'sqwiggle' => [
             'driver' => 'sqwiggle',
             'token'  => env('SQWIGGLE_TOKEN', ''),

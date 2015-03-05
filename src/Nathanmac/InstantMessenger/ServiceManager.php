@@ -1,6 +1,7 @@
 <?php namespace Nathanmac\InstantMessenger;
 
 use Illuminate\Support\Manager;
+use Nathanmac\InstantMessenger\Services\CampFireService;
 use Nathanmac\InstantMessenger\Services\FlowDockService;
 use Nathanmac\InstantMessenger\Services\GitterService;
 use Nathanmac\InstantMessenger\Services\HallService;
@@ -59,6 +60,12 @@ class ServiceManager extends Manager {
     {
         $config = $this->app['config']['messenger.connections.gitter'];
         return FlowDockService::newInstance($config['token'], isset($config['tags']) && is_array($config['tags']) ? $config['tags'] : array());
+    }
+
+    public function createCampfireDriver()
+    {
+        $config = $this->app['config']['messenger.connections.campfire'];
+        return CampFireService::newInstance($config['subdomain'], $config['token'], $config['room']);
     }
 
     protected function createLogDriver()

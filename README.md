@@ -13,7 +13,7 @@ Services Supported
 - [x] Sqwiggle
 - [x] Gitter
 - [x] FlowDock
-- [ ] Campfire
+- [x] Campfire
 - [ ] Grove
 - [ ] IRC
 
@@ -71,6 +71,15 @@ use Nathanmac\InstantMessenger\Services\JacondaService;
 use Nathanmac\InstantMessenger\Services\SqwiggleService;
 use Nathanmac\InstantMessenger\Services\GitterService;
 use Nathanmac\InstantMessenger\Services\FlowDockService;
+use Nathanmac\InstantMessenger\Services\CampFireService;
+
+// CampFire
+$transport = new CampFireService('CAMPFIRE SUBDOMAIN', 'CAMPFIRE API TOKEN', 'CAMPFIRE ROOM ID');
+
+$messenger = new Messenger($transport);
+$messenger->send(function($message) {
+    $message->body('Hello this is a simple notification.');
+});
 
 // FlowDock
 $transport = new FlowDockService('FLOW API TOKEN', ['any', 'tags', 'for', 'the', 'message']);
