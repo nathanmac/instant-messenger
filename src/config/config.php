@@ -67,6 +67,12 @@ return array(
             'token'  => env('GITTER_TOKEN', '')
         ],
 
+        'flowdock' => [
+            'driver' => 'flowdock',
+            'token'  => env('FLOW_API_TOKEN', ''),
+            'tags'  => []
+        ],
+
     ],
 
 );
