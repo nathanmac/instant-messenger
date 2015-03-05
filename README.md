@@ -12,7 +12,7 @@ Services Supported
 - [x] Jaconda
 - [x] Sqwiggle
 - [x] Gitter
-- [ ] FlowDock
+- [x] FlowDock
 - [ ] Campfire
 - [ ] Grove
 - [ ] IRC
@@ -69,6 +69,25 @@ use Nathanmac\InstantMessenger\Services\SlackService;
 use Nathanmac\InstantMessenger\Services\HallService;
 use Nathanmac\InstantMessenger\Services\JacondaService;
 use Nathanmac\InstantMessenger\Services\SqwiggleService;
+use Nathanmac\InstantMessenger\Services\GitterService;
+use Nathanmac\InstantMessenger\Services\FlowDockService;
+
+// FlowDock
+$transport = new FlowDockService('FLOW API TOKEN', ['any', 'tags', 'for', 'the', 'message']);
+
+$messenger = new Messenger($transport);
+$messenger->send(function($message) {
+    $message->body('Hello this is a simple notification.');
+    $message->from('Bot');
+});
+
+// Gitter
+$transport = new GitterService('GITTER API TOKEN');
+
+$messenger = new Messenger($transport);
+$messenger->send(function($message) {
+    $message->body('Hello this is a simple notification.');
+});
 
 // Hipchat
 $transport = new HipChatService('HIPCHAT API TOKEN', 123456);
