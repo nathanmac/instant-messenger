@@ -6,6 +6,7 @@ use Nathanmac\InstantMessenger\Services\GitterService;
 use Nathanmac\InstantMessenger\Services\HallService;
 use Nathanmac\InstantMessenger\Services\HipChatService;
 use Nathanmac\InstantMessenger\Services\JacondaService;
+use Nathanmac\InstantMessenger\Services\LogService;
 use Nathanmac\InstantMessenger\Services\SlackService;
 use Nathanmac\InstantMessenger\Services\SqwiggleService;
 
@@ -58,6 +59,11 @@ class ServiceManager extends Manager {
     {
         $config = $this->app['config']['messenger.connections.gitter'];
         return FlowDockService::newInstance($config['token'], isset($config['tags']) && is_array($config['tags']) ? $config['tags'] : array());
+    }
+
+    protected function createLogDriver()
+    {
+        return LogService::newInstance($this->app->make('Psr\Log\LoggerInterface'));
     }
 
     /**
