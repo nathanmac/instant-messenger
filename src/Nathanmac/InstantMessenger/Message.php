@@ -18,7 +18,16 @@ class Message {
     protected $from = array('name' => 'api', 'email' => '');
 
     /**
+     * Any tags to be added to the message.
+     *  (Only supported by selected services)
+     *
+     * @var array
+     */
+    protected $tags = array();
+
+    /**
      * The icon image use as part of the message.
+     *  (Only supported by selected services)
      *
      * @var string|null
      */
@@ -73,6 +82,39 @@ class Message {
      */
     public function getBody() {
         return $this->body;
+    }
+
+    /**
+     * Set the tags for the message.
+     *
+     * @return $this
+     */
+    public function tags()
+    {
+        $this->tags = array_merge($this->tags, func_get_args());
+        return $this;
+    }
+
+    /**
+     * Set/Add a single tag to the message.
+     *
+     * @param string $tag
+     * @return $this
+     */
+    public function tag($tag)
+    {
+        array_push($this->tags, $tag);
+        return $this;
+    }
+
+    /**
+     * Fetch the tags for the message.
+     *
+     * @return array
+     */
+    public function getTags()
+    {
+        return $this->tags;
     }
 
     /**
