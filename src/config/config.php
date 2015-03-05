@@ -62,6 +62,11 @@ return array(
             'stream' => env('SQWIGGLE_STREAM', '')
         ],
 
+        'gitter' => [
+            'driver' => 'gitter',
+            'token'  => env('GITTER_TOKEN', '')
+        ],
+
     ],
 
 );

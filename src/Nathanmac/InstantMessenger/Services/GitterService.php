@@ -27,6 +27,18 @@ class GitterService extends HTTPService implements MessengerService {
     }
 
     /**
+     * Create a new GitterService instance.
+     *
+     * @param $token
+     *
+     * @return GitterService
+     */
+    public static function newInstance($token)
+    {
+        return new self($token);
+    }
+
+    /**
      * Send/Transmit the message using the service.
      *
      * @param Message $message

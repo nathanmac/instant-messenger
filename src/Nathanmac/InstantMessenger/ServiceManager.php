@@ -1,6 +1,7 @@
 <?php namespace Nathanmac\InstantMessenger;
 
 use Illuminate\Support\Manager;
+use Nathanmac\InstantMessenger\Services\GitterService;
 use Nathanmac\InstantMessenger\Services\HallService;
 use Nathanmac\InstantMessenger\Services\HipChatService;
 use Nathanmac\InstantMessenger\Services\JacondaService;
@@ -44,6 +45,12 @@ class ServiceManager extends Manager {
     {
         $config = $this->app['config']['messenger.connections.sqwiggle'];
         return SqwiggleService::newInstance($config['token'], $config['stream']);
+    }
+
+    public function createGitterDriver()
+    {
+        $config = $this->app['config']['messenger.connections.gitter'];
+        return GitterService::newInstance($config['token']);
     }
 
     /**
