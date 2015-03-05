@@ -18,7 +18,7 @@ return array(
     |
     */
 
-    'driver' => 'hipchat',
+    'driver' => env('MESSENGER_DRIVER', 'hipchat'),
 
     /*
      |--------------------------------------------------------------------------
