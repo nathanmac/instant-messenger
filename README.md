@@ -79,6 +79,8 @@ $messenger = new Messenger($transport);
 $messenger->send(function($message) {
     $message->body('Hello this is a simple notification.');
     $message->from('Bot');
+    $message->tags('more', 'tags', 'as', 'required');
+    $message->tag('OMG');
 });
 
 // Gitter

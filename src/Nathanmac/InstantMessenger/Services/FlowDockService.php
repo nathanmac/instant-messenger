@@ -80,8 +80,9 @@ class FlowDockService extends HTTPService implements MessengerService {
             'content' => $message->getBody()
         );
 
+        $msg['tags'] = $message->getTags();
         if (is_array($this->tags) && !empty($this->tags))
-            $msg['tags'] = $this->tags;
+            $msg['tags'] = array_merge($msg['tags'], $this->tags);
 
         return $msg;
     }
