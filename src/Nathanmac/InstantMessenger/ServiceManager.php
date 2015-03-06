@@ -4,6 +4,7 @@ use Illuminate\Support\Manager;
 use Nathanmac\InstantMessenger\Services\CampFireService;
 use Nathanmac\InstantMessenger\Services\FlowDockService;
 use Nathanmac\InstantMessenger\Services\GitterService;
+use Nathanmac\InstantMessenger\Services\GroveService;
 use Nathanmac\InstantMessenger\Services\HallService;
 use Nathanmac\InstantMessenger\Services\HipChatService;
 use Nathanmac\InstantMessenger\Services\JacondaService;
@@ -66,6 +67,12 @@ class ServiceManager extends Manager {
     {
         $config = $this->app['config']['messenger.connections.campfire'];
         return CampFireService::newInstance($config['subdomain'], $config['token'], $config['room']);
+    }
+
+    public function createGroveDriver()
+    {
+        $config = $this->app['config']['messenger.connections.grove'];
+        return GroveService::newInstance($config['subdomain'], $config['token'], $config['room']);
     }
 
     protected function createLogDriver()

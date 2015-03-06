@@ -15,6 +15,10 @@ return array(
     | Default Service Driver
     |--------------------------------------------------------------------------
     |
+    | By default, the setup is for the HipChat service.
+	|
+	| Supported: "hipchat", "slack", "hall", "jaconda", "campfire",
+    |               "sqwiggle", "gitter", "flowdock", "grove", "log"
     |
     */
 
@@ -24,7 +28,8 @@ return array(
      |--------------------------------------------------------------------------
      | Instant Messenger Services
      |--------------------------------------------------------------------------
-     |
+	 |
+     | Here you can configure the messenger "services".
      |
      */
 
@@ -78,6 +83,11 @@ return array(
             'driver' => 'flowdock',
             'token'  => env('FLOW_API_TOKEN', ''),
             'tags'  => []
+        ],
+
+        'grove' => [
+            'driver' => 'grove',
+            'token'  => env('GROVE_API_TOKEN', '')
         ],
 
     ],

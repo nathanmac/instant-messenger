@@ -14,7 +14,7 @@ Services Supported
 - [x] Gitter
 - [x] FlowDock
 - [x] Campfire
-- [ ] Grove
+- [x] Grove
 - [ ] IRC
 
 Installation
@@ -72,6 +72,16 @@ use Nathanmac\InstantMessenger\Services\SqwiggleService;
 use Nathanmac\InstantMessenger\Services\GitterService;
 use Nathanmac\InstantMessenger\Services\FlowDockService;
 use Nathanmac\InstantMessenger\Services\CampFireService;
+use Nathanmac\InstantMessenger\Services\GroveService;
+
+// Grove
+$transport = new GroveService('GROVE CHANNEL TOKEN');
+
+$messenger = new Messenger($transport);
+$messenger->send(function($message) {
+    $message->from('Bot');
+    $message->body('Hello this is a simple notification.');
+});
 
 // CampFire
 $transport = new CampFireService('CAMPFIRE SUBDOMAIN', 'CAMPFIRE API TOKEN', 'CAMPFIRE ROOM ID');
