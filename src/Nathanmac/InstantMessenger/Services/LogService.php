@@ -59,6 +59,6 @@ class LogService implements MessengerService {
 
         // Auto Notifier : Hello this is a simple notification.
         // John Smith [john.smith@example.com] : Hello this is a simple notification.
-        return "{$from['name']}" . ($from['email'] != "" ? "[{$from['email']}]" : "") . " : {$content}";
+        return "[MESSENGER] {$from['name']}" . ($from['email'] != "" ? "[{$from['email']}]" : "") . " : {$content}";
     }
 }
