@@ -72,7 +72,7 @@ class ServiceManager extends Manager {
     public function createGroveDriver()
     {
         $config = $this->app['config']['messenger.connections.grove'];
-        return GroveService::newInstance($config['subdomain'], $config['token'], $config['room']);
+        return GroveService::newInstance($config['token']);
     }
 
     protected function createLogDriver()
