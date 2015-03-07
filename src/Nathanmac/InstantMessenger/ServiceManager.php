@@ -30,13 +30,13 @@ class ServiceManager extends Manager {
     public function createSlackDriver()
     {
         $config = $this->app['config']['messenger.connections.slack'];
-        return SlackService::newInstance($config['token'], $config['channel']);
+        return SlackService::newInstance($config['token'], $config['channel'], isset($config['icon']) ? $config['icon'] : null);
     }
 
     public function createHallDriver()
     {
         $config = $this->app['config']['messenger.connections.hall'];
-        return HallService::newInstance($config['token']);
+        return HallService::newInstance($config['token'], isset($config['icon']) ? $config['icon'] : null);
     }
 
     public function createJacondaDriver()
@@ -72,7 +72,7 @@ class ServiceManager extends Manager {
     public function createGroveDriver()
     {
         $config = $this->app['config']['messenger.connections.grove'];
-        return GroveService::newInstance($config['token']);
+        return GroveService::newInstance($config['token'], isset($config['icon']) ? $config['icon'] : null);
     }
 
     protected function createLogDriver()

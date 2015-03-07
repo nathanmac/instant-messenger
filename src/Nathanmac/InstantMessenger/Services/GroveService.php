@@ -12,6 +12,13 @@ class GroveService extends HTTPService implements MessengerService {
     protected $token;
 
     /**
+     * The icon for the message.
+     *
+     * @var string
+     */
+    protected $icon = null;
+
+    /**
      * The API endpoint.
      *
      * @var string
@@ -22,22 +29,25 @@ class GroveService extends HTTPService implements MessengerService {
      * Setup the transporter for the Grove service.
      *
      * @param string $token
+     * @param string|null $icon
      */
-    public function __construct($token)
+    public function __construct($token, $icon = null)
     {
         $this->token = $token;
+        $this->icon = $icon;
     }
 
     /**
      * Create a new GroveService instance.
      *
      * @param $token
+     * @param string|null $icon
      *
      * @return GroveService
      */
-    public static function newInstance($token)
+    public static function newInstance($token, $icon = null)
     {
-        return new self($token);
+        return new self($token, $icon);
     }
 
     /**
@@ -69,6 +79,9 @@ class GroveService extends HTTPService implements MessengerService {
             'message' => $message->getBody()
         );
 
+        if ($this->getIcon())
+            $msg['icon_url'] = $this->getIcon();
+
         if ($message->getIcon())
             $msg['icon_url'] = $message->getIcon();
 
@@ -96,6 +109,29 @@ class GroveService extends HTTPService implements MessengerService {
     {
         $this->token = $token;
 
+        return $this;
+    }
+
+    /**
+     * Get the image for the message.
+     *
+     * @return string
+     */
+    public function getIcon()
+    {
+        return $this->icon;
+    }
+
+    /**
+     * Set the icon for the message.
+     *
+     * @param string $icon
+     *
+     * @return $this
+     */
+    public function setIcon($icon)
+    {
+        $this->icon = $icon;
         return $this;
     }
 }

@@ -46,12 +46,14 @@ return array(
         'slack' => [
             'driver'  => 'slack',
             'token'   => env('SLACK_TOKEN', ''),
-            'channel' => env('SLACK_CHANNEL', '')
+            'channel' => env('SLACK_CHANNEL', ''),
+            'icon'    => env('SLACK_ICON', null)
         ],
 
         'hall' => [
             'driver' => 'hall',
-            'token'  => env('HALL_TOKEN', '')
+            'token'  => env('HALL_TOKEN', ''),
+            'icon'   => env('HALL_ICON', null)
         ],
 
         'jaconda' => [
@@ -87,7 +89,8 @@ return array(
 
         'grove' => [
             'driver' => 'grove',
-            'token'  => env('GROVE_API_TOKEN', '')
+            'token'  => env('GROVE_API_TOKEN', ''),
+            'icon'   => env('GROVE_ICON', null)
         ],
 
     ],

@@ -19,6 +19,13 @@ class SlackService extends HTTPService implements MessengerService {
     protected $channel;
 
     /**
+     * The icon for the message.
+     *
+     * @var string
+     */
+    protected $icon = null;
+
+    /**
      * The API endpoint for the Slack service.
      *
      * @var string
@@ -28,26 +35,29 @@ class SlackService extends HTTPService implements MessengerService {
     /**
      * Setup the transporter for the Slack service.
      *
-     * @param string      $token
+     * @param string $token
      * @param null|string $channel
+     * @param string|null $icon
      */
-    public function __construct($token, $channel = null)
+    public function __construct($token, $channel = null, $icon = null)
     {
         $this->token = $token;
         $this->channel = $channel;
+        $this->icon = $icon;
     }
 
     /**
      * Create a new SlackService instance.
      *
      * @param $token
-     * @param null $channel
+     * @param string|null $channel
+     * @param string|null $icon
      *
      * @return SlackService
      */
-    public static function newInstance($token, $channel = null)
+    public static function newInstance($token, $channel = null, $icon = null)
     {
-        return new self($token, $channel);
+        return new self($token, $channel, $icon);
     }
 
     /**
@@ -78,6 +88,9 @@ class SlackService extends HTTPService implements MessengerService {
             'text' => $message->getBody(),
             'username' => $message->getFrom()['name']
         );
+
+        if ($this->getIcon())
+            $msg['icon_url'] = $this->getIcon();
 
         if ($message->getIcon())
             $msg['icon_url'] = $message->getIcon();
@@ -131,6 +144,29 @@ class SlackService extends HTTPService implements MessengerService {
     public function setChannel($channel)
     {
         $this->channel = $channel;
+        return $this;
+    }
+
+    /**
+     * Get the image for the message.
+     *
+     * @return string
+     */
+    public function getIcon()
+    {
+        return $this->icon;
+    }
+
+    /**
+     * Set the icon for the message.
+     *
+     * @param string $icon
+     *
+     * @return $this
+     */
+    public function setIcon($icon)
+    {
+        $this->icon = $icon;
         return $this;
     }
 }
