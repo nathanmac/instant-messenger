@@ -37,6 +37,9 @@ class MessengerCommand extends Command {
 
             // Icon for the message
             $message->icon($this->option('image'));
+
+            // Tags for the message (comma/pipe delimited)
+            $message->tags(preg_split('/(,|\|) ?/', $this->option('tags')));
         });
 
         $this->info('Messenger: A message has been sent.');
@@ -63,6 +66,7 @@ class MessengerCommand extends Command {
     {
         return [
             ['from', 'f', InputOption::VALUE_OPTIONAL, 'Set the name of the sender of the message.', null],
+            ['tags', 't', InputOption::VALUE_OPTIONAL, 'Set the tags for the message being sent (comma delimited list).', null],
             ['email', 'e', InputOption::VALUE_OPTIONAL, 'Set the email of the sender of the message.', null],
             ['image', 'i', InputOption::VALUE_OPTIONAL, 'Set the image/icon of the message.', null]
         ];
