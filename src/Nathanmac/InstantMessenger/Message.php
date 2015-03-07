@@ -87,11 +87,17 @@ class Message {
     /**
      * Set the tags for the message.
      *
+     * @param array $tags
+     *
      * @return $this
      */
-    public function tags()
+    public function tags($tags = array())
     {
-        $this->tags = array_merge($this->tags, func_get_args());
+        if (is_array($tags))
+            $this->tags = array_merge($this->tags, $tags);
+        else
+            $this->tags = array_merge($this->tags, func_get_args());
+
         return $this;
     }
 

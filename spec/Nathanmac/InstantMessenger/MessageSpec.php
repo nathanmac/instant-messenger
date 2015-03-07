@@ -39,6 +39,12 @@ class MessageSpec extends ObjectBehavior
         $this->getTags()->shouldReturn(['first tag', 'second tag', 'third tag']);
     }
 
+    function it_sets_the_message_tags_with_array_parameter()
+    {
+        $this->tags(['first tag', 'second tag', 'third tag']);
+        $this->getTags()->shouldReturn(['first tag', 'second tag', 'third tag']);
+    }
+
     function it_sets_the_messages_icon()
     {
         $this->icon('url to the icon');
