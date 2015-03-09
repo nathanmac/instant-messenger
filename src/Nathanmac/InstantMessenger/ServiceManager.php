@@ -59,7 +59,7 @@ class ServiceManager extends Manager {
 
     public function createFlowdockDriver()
     {
-        $config = $this->app['config']['messenger.connections.gitter'];
+        $config = $this->app['config']['messenger.connections.flowdock'];
         return FlowDockService::newInstance($config['token'], isset($config['tags']) && is_array($config['tags']) ? $config['tags'] : array());
     }
 
