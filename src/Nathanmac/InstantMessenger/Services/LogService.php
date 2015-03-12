@@ -54,11 +54,25 @@ class LogService implements MessengerService {
      */
     protected function buildMessage(Message $message)
     {
-        $from = $message->getFrom();
+        $from    = $message->getFrom();
         $content = $message->getBody();
+        $tags    = $message->getTags();
+        $icon    = $message->getIcon();
 
-        // Auto Notifier : Hello this is a simple notification.
-        // John Smith [john.smith@example.com] : Hello this is a simple notification.
-        return "[MESSENGER] {$from['name']}" . ($from['email'] != "" ? "[{$from['email']}]" : "") . " : {$content}";
+        $string = (string) "[MESSENGER] : A message has been sent." . PHP_EOL;
+        $string .= "[MESSENGER][FROM] {$from['name']}" . ($from['email'] != "" ? "[{$from['email']}]" : "") . PHP_EOL;
+        $string .= "[MESSENGER][CONTENT] : {$content}";
+
+        if ( ! empty($tags) && is_array($tags))
+        {
+            $string .= PHP_EOL . "[MESSENGER][TAGS] : " . implode(", ", $tags);
+        }
+
+        if ( ! $icon)
+        {
+            $string .= PHP_EOL . "[MESSENGER][ICON] : " . $icon;
+        }
+
+        return $string;
     }
 }
