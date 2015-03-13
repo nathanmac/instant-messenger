@@ -85,6 +85,18 @@ class Message {
     }
 
     /**
+     * Set/Add a single tag to the message.
+     *
+     * @param string $tag
+     * @return $this
+     */
+    public function tag($tag)
+    {
+        array_push($this->tags, $tag);
+        return $this;
+    }
+
+    /**
      * Set the tags for the message.
      *
      * @param array $tags
@@ -98,18 +110,6 @@ class Message {
         else
             $this->tags = array_merge($this->tags, func_get_args());
 
-        return $this;
-    }
-
-    /**
-     * Set/Add a single tag to the message.
-     *
-     * @param string $tag
-     * @return $this
-     */
-    public function tag($tag)
-    {
-        array_push($this->tags, $tag);
         return $this;
     }
 

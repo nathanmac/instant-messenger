@@ -72,6 +72,7 @@ class Messenger implements MessengerContract, MessengerQueueContract {
      * Send a new instant message.
      *
      * @param  \Closure|string $callback
+     *
      * @return void
      */
     public function send($callback)
@@ -88,6 +89,7 @@ class Messenger implements MessengerContract, MessengerQueueContract {
      *
      * @param  \Closure|string $callback
      * @param  string  $queue
+     *
      * @return mixed
      */
     public function queue($callback, $queue = null)
@@ -102,6 +104,7 @@ class Messenger implements MessengerContract, MessengerQueueContract {
      *
      * @param  string  $queue
      * @param  \Closure|string  $callback
+     *
      * @return mixed
      */
     public function queueOn($queue, $callback)
@@ -115,6 +118,7 @@ class Messenger implements MessengerContract, MessengerQueueContract {
      * @param  int  $delay
      * @param  \Closure|string  $callback
      * @param  string  $queue
+     *
      * @return mixed
      */
     public function later($delay, $callback, $queue = null)
@@ -130,6 +134,7 @@ class Messenger implements MessengerContract, MessengerQueueContract {
      * @param  string  $queue
      * @param  int  $delay
      * @param  \Closure|string  $callback
+     *
      * @return mixed
      */
     public function laterOn($queue, $delay, $callback)
@@ -141,6 +146,7 @@ class Messenger implements MessengerContract, MessengerQueueContract {
      * Build the callable for a queued message job.
      *
      * @param  mixed  $callback
+     *
      * @return mixed
      */
     protected function buildQueueCallable($callback)
@@ -155,6 +161,7 @@ class Messenger implements MessengerContract, MessengerQueueContract {
      *
      * @param  \Illuminate\Contracts\Queue\Job  $job
      * @param  array  $data
+     *
      * @return void
      */
     public function handleQueuedMessage(Job $job, $data)
@@ -168,6 +175,7 @@ class Messenger implements MessengerContract, MessengerQueueContract {
      * Get the true callable for a queued message.
      *
      * @param  array  $data
+     *
      * @return mixed
      */
     protected function getQueuedCallable(array $data)
@@ -185,6 +193,7 @@ class Messenger implements MessengerContract, MessengerQueueContract {
      *
      * @param  \Closure|string  $callback
      * @param  \Nathanmac\InstantMessenger\Message $message
+     *
      * @return mixed
      *
      * @throws \InvalidArgumentException
@@ -230,6 +239,7 @@ class Messenger implements MessengerContract, MessengerQueueContract {
      * Log that a message was sent.
      *
      * @param  Message  $message
+     *
      * @return void
      */
     protected function logMessage(Message $message)
@@ -241,6 +251,7 @@ class Messenger implements MessengerContract, MessengerQueueContract {
      * Tell the messenger to not really send messages.
      *
      * @param  bool  $value
+     *
      * @return void
      */
     public function pretend($value = true)
@@ -262,6 +273,7 @@ class Messenger implements MessengerContract, MessengerQueueContract {
      * Set the log writer instance.
      *
      * @param  \Psr\Log\LoggerInterface  $logger
+     *
      * @return $this
      */
     public function setLogger(LoggerInterface $logger)
@@ -275,6 +287,7 @@ class Messenger implements MessengerContract, MessengerQueueContract {
      * Set the queue manager instance.
      *
      * @param  \Illuminate\Contracts\Queue\Queue  $queue
+     *
      * @return $this
      */
     public function setQueue(Queue $queue)
@@ -288,6 +301,7 @@ class Messenger implements MessengerContract, MessengerQueueContract {
      * Set the IoC container instance.
      *
      * @param  \Illuminate\Contracts\Container\Container  $container
+     *
      * @return void
      */
     public function setContainer(Container $container)

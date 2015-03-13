@@ -7,6 +7,7 @@ interface MessengerQueue {
      *
      * @param  \Closure|string  $callback
      * @param  string  $queue
+     *
      * @return mixed
      */
     public function queue($callback, $queue = null);
@@ -17,6 +18,7 @@ interface MessengerQueue {
      * @param  int  $delay
      * @param  \Closure|string  $callback
      * @param  string  $queue
+     *
      * @return mixed
      */
     public function later($delay, $callback, $queue = null);

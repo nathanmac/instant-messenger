@@ -74,6 +74,7 @@ class MessengerServiceProvider extends ServiceProvider {
      *
      * @param  \Nathanmac\InstantMessenger\Messenger $messenger
      * @param  \Illuminate\Contracts\Foundation\Application $app
+     *
      * @return void
      */
     protected function setMessengerDependencies(Messenger $messenger, $app)
@@ -113,5 +114,4 @@ class MessengerServiceProvider extends ServiceProvider {
     {
         return ['messenger', 'messenger.transport'];
     }
-
 }
