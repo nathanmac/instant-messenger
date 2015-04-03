@@ -125,7 +125,7 @@ class ServiceManager extends Manager {
      *
      * @return LogService
      */
-    protected function createLogDriver()
+    public function createLogDriver()
     {
         return LogService::newInstance($this->app->make('Psr\Log\LoggerInterface'));
     }
