@@ -29,6 +29,8 @@ class GitterService extends HTTPService implements MessengerService {
     /**
      * Create a new GitterService instance.
      *
+     * @codeCoverageIgnore
+     *
      * @param $token
      *
      * @return GitterService

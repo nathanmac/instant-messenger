@@ -40,6 +40,8 @@ class HallService extends HTTPService implements MessengerService {
     /**
      * Create a new HallService instance.
      *
+     * @codeCoverageIgnore
+     *
      * @param $token
      * @param string|null $icon
      *

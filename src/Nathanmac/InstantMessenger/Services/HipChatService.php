@@ -60,6 +60,8 @@ class HipChatService extends HTTPService implements MessengerService {
     /**
      * Create a new HipChatService instance.
      *
+     * @codeCoverageIgnore
+     *
      * @param $key
      * @param $room
      * @param bool $notify

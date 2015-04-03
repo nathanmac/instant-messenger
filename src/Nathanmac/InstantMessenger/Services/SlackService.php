@@ -49,6 +49,8 @@ class SlackService extends HTTPService implements MessengerService {
     /**
      * Create a new SlackService instance.
      *
+     * @codeCoverageIgnore
+     *
      * @param $token
      * @param string|null $channel
      * @param string|null $icon

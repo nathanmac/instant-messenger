@@ -40,6 +40,8 @@ class SqwiggleService extends HTTPService implements MessengerService {
     /**
      * Create a new SqwiggleService instance.
      *
+     * @codeCoverageIgnore
+     *
      * @param string $token
      * @param int $stream
      *

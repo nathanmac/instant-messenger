@@ -40,6 +40,8 @@ class GroveService extends HTTPService implements MessengerService {
     /**
      * Create a new GroveService instance.
      *
+     * @codeCoverageIgnore
+     *
      * @param $token
      * @param string|null $icon
      *

@@ -40,6 +40,8 @@ class FlowDockService extends HTTPService implements MessengerService {
     /**
      * Create a new FlowDockService instance.
      *
+     * @codeCoverageIgnore
+     *
      * @param string $token
      * @param array $tags
      *
@@ -80,9 +82,12 @@ class FlowDockService extends HTTPService implements MessengerService {
             'content' => $message->getBody()
         );
 
-        $msg['tags'] = $message->getTags();
+        $tags = $message->getTags();
         if (is_array($this->tags) && !empty($this->tags))
-            $msg['tags'] = array_merge($msg['tags'], $this->tags);
+            $tags = array_merge($tags, $this->tags);
+
+        if (!empty($tags))
+            $msg['tags'] = $tags;
 
         return $msg;
     }
@@ -125,10 +130,17 @@ class FlowDockService extends HTTPService implements MessengerService {
      *
      * @param array $tags
      *
+     * @throws /InvalidArgumentException
+     *
      * @return $this
      */
     public function setTags($tags)
     {
+        if ( ! is_array($tags))
+        {
+            throw new \InvalidArgumentException("setTags function only accepts an array of strings.");
+        }
+
         $this->tags = $tags;
         return $this;
     }

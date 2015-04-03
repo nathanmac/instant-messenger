@@ -7,6 +7,8 @@ abstract class HTTPService {
     /**
      * Get a new HTTP client instance.
      *
+     * @codeCoverageIgnore
+     *
      * @return \GuzzleHttp\Client
      */
     protected function getHttpClient()

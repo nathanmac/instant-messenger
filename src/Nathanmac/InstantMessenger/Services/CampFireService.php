@@ -42,6 +42,8 @@ class CampFireService extends HTTPService implements MessengerService {
     /**
      * Create a new CampFireService instance.
      *
+     * @codeCoverageIgnore
+     *
      * @param $subDomain
      * @param $token
      * @param $room
@@ -65,7 +67,7 @@ class CampFireService extends HTTPService implements MessengerService {
         $client = $this->getHttpClient();
 
         $url = 'https://' . $this->subDomain . '.campfirenow.com/room/' . $this->room . '/speak.xml';
-        $client->post($url, array('auth' => array($this->token, 'X'), 'headers' => ['Content-Type' => 'application/xml'], 'body' => $this->buildMessage($message)));
+        $client->post($url, array('auth' => array($this->token, 'X'), 'headers' => array('Content-Type' => 'application/xml'), 'body' => $this->buildMessage($message)));
     }
 
     /**

@@ -25,6 +25,8 @@ class LogService implements MessengerService {
     /**
      * Create a new LogService instance.
      *
+     * @codeCoverageIgnore
+     *
      * @param \Psr\Log\LoggerInterface $logger
      *
      * @return LogService
@@ -60,7 +62,7 @@ class LogService implements MessengerService {
         $icon    = $message->getIcon();
 
         $string = (string) "[MESSENGER] : A message has been sent." . PHP_EOL;
-        $string .= "[MESSENGER][FROM] {$from['name']}" . ($from['email'] != "" ? "[{$from['email']}]" : "") . PHP_EOL;
+        $string .= "[MESSENGER][FROM] : {$from['name']}" . ($from['email'] != "" ? "[{$from['email']}]" : "") . PHP_EOL;
         $string .= "[MESSENGER][CONTENT] : {$content}";
 
         if ( ! empty($tags) && is_array($tags))
@@ -68,7 +70,7 @@ class LogService implements MessengerService {
             $string .= PHP_EOL . "[MESSENGER][TAGS] : " . implode(", ", $tags);
         }
 
-        if ( ! $icon)
+        if ( ! is_null($icon))
         {
             $string .= PHP_EOL . "[MESSENGER][ICON] : " . $icon;
         }
