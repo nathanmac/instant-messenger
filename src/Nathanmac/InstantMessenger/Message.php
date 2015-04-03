@@ -76,12 +76,37 @@ class Message {
     }
 
     /**
+     * Alias for the body message.
+     *
+     * @alias body
+     *
+     * @param $body
+     *
+     * @return Message
+     */
+    public function content($body)
+    {
+        return $this->body($body);
+    }
+
+    /**
      * Fetch the body of the message.
      *
      * @return string
      */
     public function getBody() {
         return $this->body;
+    }
+
+    /**
+     * Alias for the Fetch the body of the message.
+     *
+     * @alias getBody
+     *
+     * @return string
+     */
+    public function getContent() {
+        return $this->getBody();
     }
 
     /**

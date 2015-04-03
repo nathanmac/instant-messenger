@@ -19,6 +19,13 @@ class MessageSpec extends ObjectBehavior
         $this->getBody()->shouldReturn($message);
     }
 
+    function it_sets_the_messages_body_using_the_content_alias_methods()
+    {
+        $message = "This is a simple notification message";
+        $this->content($message);
+        $this->getContent()->shouldReturn($message);
+    }
+
     function it_sets_the_messages_from()
     {
         // Set just the name
