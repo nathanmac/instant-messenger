@@ -3,16 +3,16 @@
 namespace spec\Nathanmac\InstantMessenger\Services;
 
 use Nathanmac\InstantMessenger\Message;
-use Nathanmac\InstantMessenger\Services\JacondaService;
+use Nathanmac\InstantMessenger\Services\CampFireService;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 use GuzzleHttp;
 
-class JacondaServiceSpec extends ObjectBehavior
+class CampFireServiceSpec extends ObjectBehavior
 {
     function let(GuzzleHttp\Client $client)
     {
-        $this->beAnInstanceOf('spec\Nathanmac\InstantMessenger\Services\JacondaServiceStub');
+        $this->beAnInstanceOf('spec\Nathanmac\InstantMessenger\Services\CampFireServiceStub');
         $this->beConstructedWith('subdomain', 'token', 'room');
 
         $this->setHttpClient($client);
@@ -20,8 +20,7 @@ class JacondaServiceSpec extends ObjectBehavior
 
     function it_is_initializable()
     {
-
-        $this->shouldHaveType('Nathanmac\InstantMessenger\Services\JacondaService');
+        $this->shouldHaveType('Nathanmac\InstantMessenger\Services\CampFireService');
         $this->shouldHaveType('Nathanmac\InstantMessenger\Services\HTTPService');
     }
 
@@ -29,57 +28,57 @@ class JacondaServiceSpec extends ObjectBehavior
     {
         // Create a new message.
         $message = new Message();
-        $message->from('API');
         $message->body("Simple notification message.");
 
-        $client->post("https://subdomain.jaconda.im/api/v2/rooms/room/notify.xml",
+        $client->post("https://subdomain.campfirenow.com/room/room/speak.xml",
             array(
-                "auth" => array("token", "X"),
-                "json" => array("message" => array("sender_name" => "API", "text" => "Simple notification message."))
+                "auth" => array('token', 'X'),
+                'headers' => array('Content-Type' => 'application/xml'),
+                "body" => "<message><type>TextMessage</type><body>Simple notification message.</body></message>"
             )
         )->shouldBeCalled();
 
         $this->send($message);
     }
 
-    function it_gets_and_sets_the_sub_domain()
+    function it_gets_and_sets_the_subdomain()
     {
-        // Get the current key
-        $this->getSubDomain()->shouldReturn('subdomain');
+        // Get the current subdomain
+        $this->getSubdomain()->shouldReturn('subdomain');
 
-        // Set the api key
-        $this->setSubDomain('newsubdomain');
+        // Set the subdomain
+        $this->setSubdomain('newsubdomain');
 
-        // Get the current key
-        $this->getSubDomain()->shouldReturn('newsubdomain');
+        // Get the current subdomain
+        $this->getSubdomain()->shouldReturn('newsubdomain');
     }
 
     function it_gets_and_sets_the_token()
     {
-        // Get the current key
+        // Get the current token
         $this->getToken()->shouldReturn('token');
 
-        // Set the api key
+        // Set the token
         $this->setToken('newtoken');
 
-        // Get the current key
+        // Get the current token
         $this->getToken()->shouldReturn('newtoken');
     }
 
     function it_gets_and_sets_the_room()
     {
-        // Get the current key
+        // Get the current room
         $this->getRoom()->shouldReturn('room');
 
-        // Set the api key
+        // Set the room
         $this->setRoom('newroom');
 
-        // Get the current key
+        // Get the current room
         $this->getRoom()->shouldReturn('newroom');
     }
 }
 
-class JacondaServiceStub extends JacondaService {
+class CampFireServiceStub extends CampFireService {
 
     public $client;
 
