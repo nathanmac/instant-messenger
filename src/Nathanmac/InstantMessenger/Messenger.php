@@ -77,7 +77,7 @@ class Messenger implements MessengerContract, MessengerQueueContract {
      */
     public function send($callback)
     {
-        $data['message'] = $message = $this->createMessage();
+        $message = $this->createMessage();
 
         $this->callMessageBuilder($callback, $message);
 
