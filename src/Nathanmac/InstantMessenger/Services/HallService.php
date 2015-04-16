@@ -81,10 +81,10 @@ class HallService extends HTTPService implements MessengerService {
             'message' => $message->getBody()
         );
 
-        if ($this->getIcon())
+        if (null !== $this->getIcon())
             $msg['picture'] = $this->getIcon();
 
-        if ($message->getIcon())
+        if (null !== $message->getIcon())
             $msg['picture'] = $message->getIcon();
 
         return $msg;

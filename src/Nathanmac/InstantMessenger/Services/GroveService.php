@@ -81,10 +81,10 @@ class GroveService extends HTTPService implements MessengerService {
             'message' => $message->getBody()
         );
 
-        if ($this->getIcon())
+        if (null !== $this->getIcon())
             $msg['icon_url'] = $this->getIcon();
 
-        if ($message->getIcon())
+        if (null !== $message->getIcon())
             $msg['icon_url'] = $message->getIcon();
 
         return $msg;

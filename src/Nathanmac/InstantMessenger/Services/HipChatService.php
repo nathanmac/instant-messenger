@@ -165,7 +165,7 @@ class HipChatService extends HTTPService implements MessengerService {
     /**
      * Set the Room ID being used by the transport.
      *
-     * @param  string  $room
+     * @param  int  $room
      *
      * @return $this
      */
