@@ -11,6 +11,7 @@ use Nathanmac\InstantMessenger\Services\JacondaService;
 use Nathanmac\InstantMessenger\Services\LogService;
 use Nathanmac\InstantMessenger\Services\SlackService;
 use Nathanmac\InstantMessenger\Services\SqwiggleService;
+use Nathanmac\InstantMessenger\Services\TelegramService;
 
 class ServiceManager extends Manager {
 
@@ -118,6 +119,17 @@ class ServiceManager extends Manager {
     {
         $config = $this->app['config']['messenger.connections.grove'];
         return GroveService::newInstance($config['token'], isset($config['icon']) ? $config['icon'] : null);
+    }
+
+    /**
+     * Initialise the Telegram service, with the configuration settings.
+     *
+     * @return TelegramService
+     */
+    public function createTelegramDriver()
+    {
+        $config = $this->app['config']['messenger.connections.telegram'];
+        return TelegramService::newInstance($config['token'], $config['chat_id']);
     }
 
     /**

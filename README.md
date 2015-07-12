@@ -15,6 +15,7 @@ Services Supported
 - [x] FlowDock
 - [x] Campfire
 - [x] Grove
+- [x] Telegram
 - [ ] IRC
 
 Installation
@@ -73,6 +74,15 @@ use Nathanmac\InstantMessenger\Services\GitterService;
 use Nathanmac\InstantMessenger\Services\FlowDockService;
 use Nathanmac\InstantMessenger\Services\CampFireService;
 use Nathanmac\InstantMessenger\Services\GroveService;
+use Nathanmac\InstantMessenger\Services\TelegramService;
+
+// Telegram
+$transport = new TelegramService('TELEGRAM TOKEN', 'CHAT ID');
+
+$messenger = new Messenger($transport);
+$messenger->send(function($message) {
+    $message->body('Hello this is a simple notification.');
+});
 
 // Grove
 $transport = new GroveService('GROVE CHANNEL TOKEN');
