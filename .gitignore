@@ -1,5 +1,4 @@
-.idea/
-vendor/
+build
 composer.lock
-coverage/
-coverage.xml
+docs
+vendor
