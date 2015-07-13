@@ -1,6 +1,7 @@
 <?php namespace spec\Nathanmac\InstantMessenger;
 
 use Illuminate\Contracts\Events\Dispatcher;
+use Nathanmac\InstantMessenger\Message;
 use Nathanmac\InstantMessenger\Services\MessengerService;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
@@ -21,7 +22,7 @@ class MessengerSpec extends ObjectBehavior
     function it_fires_an_event_on_sending_of_message($service, $dispatcher)
     {
         // Create the expected message object
-        $message = new \Nathanmac\InstantMessenger\Message();
+        $message = new Message();
         $message->body('This is a test notification');
 
         // Event should be fired with message being sent

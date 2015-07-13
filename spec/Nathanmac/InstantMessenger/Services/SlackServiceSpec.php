@@ -72,13 +72,13 @@ class SlackServiceSpec extends ObjectBehavior
 
     function it_gets_and_sets_the_channel()
     {
-        // Get the current key
+        // Get the current channel
         $this->getChannel()->shouldReturn('#channel');
 
-        // Set the api key
+        // Set the channel
         $this->setChannel('#channel');
 
-        // Get the current key
+        // Get the current channel
         $this->getChannel()->shouldReturn('#channel');
     }
 
