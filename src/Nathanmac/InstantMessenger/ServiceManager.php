@@ -12,6 +12,7 @@ use Nathanmac\InstantMessenger\Services\LogService;
 use Nathanmac\InstantMessenger\Services\SlackService;
 use Nathanmac\InstantMessenger\Services\SqwiggleService;
 use Nathanmac\InstantMessenger\Services\TelegramService;
+use Nathanmac\InstantMessenger\Services\TwilioService;
 
 class ServiceManager extends Manager {
 
@@ -130,6 +131,17 @@ class ServiceManager extends Manager {
     {
         $config = $this->app['config']['messenger.connections.telegram'];
         return TelegramService::newInstance($config['token'], $config['chat_id']);
+    }
+
+    /**
+     * Initialise the Twilio service, with the configuration settings.
+     *
+     * @return TwilioService
+     */
+    public function createTwilioDriver()
+    {
+        $config = $this->app['config']['messenger.connections.twilio'];
+        return TwilioService::newInstance($config['account_sid'], $config['auth_token'], $config['from'], $config['to']);
     }
 
     /**

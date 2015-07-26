@@ -98,6 +98,14 @@ return array(
             'token'   => env('TELEGRAM_TOKEN'),
             'chat_id' => env('TELEGRAM_CHAT_ID')
         ],
+
+        'twilio' => [
+            'driver'      => 'twilio',
+            'account_sid' => env('TWILIO_ACCOUNT_SID', ''),
+            'auth_token'  => env('TWILIO_AUTH_TOKEN', ''),
+            'from'        => env('TWILIO_FROM', ''),
+            'to'          => env('TWILIO_TO', null)
+        ]
     ],
 
 );

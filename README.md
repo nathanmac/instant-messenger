@@ -16,6 +16,7 @@ Services Supported
 - [x] Campfire
 - [x] Grove
 - [x] Telegram
+- [x] Twillo (SMS)
 - [ ] IRC
 
 Installation
@@ -75,6 +76,15 @@ use Nathanmac\InstantMessenger\Services\FlowDockService;
 use Nathanmac\InstantMessenger\Services\CampFireService;
 use Nathanmac\InstantMessenger\Services\GroveService;
 use Nathanmac\InstantMessenger\Services\TelegramService;
+use Nathanmac\InstantMessenger\Services\TwilioService;
+
+// Twilio
+$transport = new TwilioService('TWILIO ACCOUNT SID', 'TWILIO AUTH TOKEN', 'FROM PHONE', 'TO PHONE');
+
+$messenger = new Messenger($transport);
+$messenger->send(function($message) {
+    $message->body('Hello this is a simple notification.');
+});
 
 // Telegram
 $transport = new TelegramService('TELEGRAM TOKEN', 'CHAT ID');
