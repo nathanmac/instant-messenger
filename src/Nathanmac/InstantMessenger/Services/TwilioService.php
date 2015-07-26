@@ -84,7 +84,7 @@ class TwilioService extends HTTPService implements MessengerService {
      */
     public function send(Message $message)
     {
-        if (is_null($this->getTo()) || empty($this->getTo()))
+        if (null !== $this->getTo() || '' !== $this->getTo())
             throw new Exception('Missing phone number');
 
         $client = $this->getHttpClient();
